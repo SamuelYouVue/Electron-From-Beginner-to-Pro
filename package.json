@@ -2,9 +2,10 @@
     "name": "Electron-From-Beginner-to-Pro",
     "version": "1.0.0",
     "description": "Learn electron",
-    "main": "./electron-quick-start/main.js",
+    "main": "./ch04/main.js",
     "scripts": {
-        "start": "electron-forge start",
+        "start1": "electron-forge start",
+        "start": "electron .",
         "test": "echo \"Error: no test specified\" && exit 1",
         "package": "electron-forge package",
         "make": "electron-forge make"
