@@ -2,7 +2,7 @@
     "name": "Electron-From-Beginner-to-Pro",
     "version": "1.0.0",
     "description": "Learn electron",
-    "main": "./ch04/main.js",
+    "main": "./ch05/main.js",
     "scripts": {
         "start1": "electron-forge start",
         "start": "electron .",
