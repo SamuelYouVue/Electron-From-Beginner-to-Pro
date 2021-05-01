@@ -28,6 +28,14 @@ ipc.on("show-context-menu", function(event) {
     const win = BrowserWindow.fromWebContents(event.sender);
     contextMenu.popup(win);
 });
+ipc.on("synchronous-message", function(event, arg) {
+    event.returnValue = "I heard you!";
+});
+ipc.on("asynchronous-message", function(event, arg) {
+    if (arg === `That's one small step for man`) {
+        event.sender.send("asynchronous-reply", ", one giant leap for mankind.");
+    }
+});
 
 let win = null;
 
@@ -36,7 +44,7 @@ function createWindow() {
         width: 800,
         height: 600,
         show: false,
-        // backgroundColor: "#FFF",
+        backgroundColor: "#FFF",
         // frame: false,
         title: "Goodbye, Moon?",
         titleBarStyle: "hidden", // DEFAULT: 'default'
