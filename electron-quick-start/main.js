@@ -15,14 +15,23 @@ function createWindow() {
     });
 
     win.loadFile(path.join(__dirname, "index.html"));
+    // Open the DevTools.
+    //win.webContents.openDevTools();
+
+    // Wait for 'ready-to-show' to display our window
+    win.once("ready-to-show", () => {
+        win.show();
+    });
+
+    // Emitted when the window is closed.
+    win.on("closed", function() {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        win = null;
+        console.log("closed");
+    });
 }
-
-// Open the DevTools.
-win.webContents.openDevTools();
-
-win.whenReady().then(() => {
-    win.show();
-});
 
 app.whenReady().then(() => {
     createWindow();
